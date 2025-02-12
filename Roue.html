@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Sakura - Jeu de la Roue </title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        #wheel {
+            margin: 50px auto;
+            border-radius: 50%;
+            width: 300px;
+            height: 300px;
+            position: relative;
+            background: #f0f0f0;
+            border: 5px solid #ccc;
+        }
+        #wheel div {
+            width: 100%;
+            height: 50%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: #ffcc00;
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+        }
+        #wheel div:nth-child(2) {
+            transform: rotate(60deg);
+        }
+        #wheel div:nth-child(3) {
+            transform: rotate(120deg);
+        }
+        #wheel div:nth-child(4) {
+            transform: rotate(180deg);
+        }
+        #wheel div:nth-child(5) {
+            transform: rotate(240deg);
+        }
+        #wheel div:nth-child(6) {
+            transform: rotate(300deg);
+        }
+        .button {
+            margin: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #45a049;
+        }
+        .message {
+            margin: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Restaurant Sakura - Jeu de la Roue de la Fortune</h1>
+    <p>Pour participer, veuillez <a href="https://maps.app.goo.gl/zD4qXf8hhiK8pmtd8?g_st=com.google.maps.preview.copy" target="_blank">laisser un avis sur Google</a>.</p>
+
+    <div id="wheel">
+        <div id="slice1">5 pcs de Nem Poulet</div>
+        <div id="slice2">6 pcs de Gyoza</div>
+        <div id="slice3">8 pcs de California Saumon Avocat</div>
+        <div id="slice4">Une portion de Litchi</div>
+        <div id="slice5">Une portion de Nougat Chinois</div>
+        <div id="slice6">2 pcs Perle de Coco</div>
+    </div>
+
+    <button class="button" id="spinButton">Tourner la Roue</button>
+
+    <div class="message" id="resultMessage"></div>
+
+    <script>
+        document.getElementById('spinButton').addEventListener('click', function() {
+            const resultMessage = document.getElementById('resultMessage');
+            const prizes = [
+                '5 pcs de Nem Poulet',
+                '6 pcs de Gyoza',
+                '8 pcs de California Saumon Avocat',
+                'Une portion de Litchi',
+                'Une portion de Nougat Chinois',
+                '2 pcs Perle de Coco'
+            ];
+
+            // Simulate the wheel spinning
+            const randomIndex = Math.floor(Math.random() * prizes.length);
+            resultMessage.textContent = 'Félicitations! Vous avez gagné: ' + prizes[randomIndex] + '. Ce prix est valable lors de votre prochaine visite!';
+
+            // You can also implement the actual wheel animation here if you'd like
+        });
+    </script>
+</body>
+</html>
